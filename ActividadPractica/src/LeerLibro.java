@@ -10,24 +10,24 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class LeerLibro extends DefaultHandler
 {
-	private Libros libro;
+	private Libro libro;
 	private String valor_actual;
-	private List<Libros> libros_list;
-	private Map <String, Libros> libros; // = new HashMap <String, Libros>();
+	private List<Libro> libros_list;
+	private Map <String, Libro> libros; // = new HashMap <String, Libros>();
 	
 	@Override
 	public void startDocument() throws SAXException {
 		System.out.println("INICIO DEL DOCUMENTO");
 		
-		libros_list = new ArrayList<Libros>();
-		libros = new HashMap <String, Libros>();
+		libros_list = new ArrayList<Libro>();
+		libros = new HashMap <String, Libro>();
 	}
 	
 	@Override
 	public void endDocument() throws SAXException {
 		System.out.println("FIN DEL DOCUMENTO");
 		
-		for (Libros libro : libros_list)
+		for (Libro libro : libros_list)
 		{
 			System.out.println("INFO LIBRO");
 			System.out.println("ISBN = " + libro.getIsbn());
@@ -43,7 +43,7 @@ public class LeerLibro extends DefaultHandler
 		System.out.println("StartElement = " + localName);
 		if (localName.equals("libro"))
 		{
-			this.libro = new Libros(qName, qName, qName, qName, qName);
+			this.libro = new Libro(qName, qName, qName, qName, qName);
 			String valor_isbn = attributes.getValue("isbn");
 			this.libro.setIsbn(valor_isbn);
 		}

@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Libros 
+public class Libro implements Serializable
 {	
 	/**
 	 * @param isbn 
@@ -8,7 +9,7 @@ public class Libros
 	 * @param anyo
 	 * @param editorial	 */
 	
-	public Libros (String isbn, String titulo, String autor, String anyo, String editorial)
+	public Libro (String isbn, String titulo, String autor, String anyo, String editorial)
 	{
 		super();
 		this.isbn = isbn;
@@ -72,5 +73,11 @@ public class Libros
 	public void setEditorial (String editorial)
 	{
 		this.editorial = editorial;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.titulo + "  " + this.isbn;
 	}
 }
